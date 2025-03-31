@@ -1,0 +1,24 @@
+{
+  "name": "cloudwalk-assessment",
+  "version": "1.0.0",
+  "description": "Backend for a technical test for CloudWalk. Built with Node.js and TypeScript, following clean code and architecture best practices.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pedrobarreto/cloudwalk-assessment.git"
+  },
+  "keywords": [
+    "cloudwalk",
+    "infinitepay",
+    "nodejs"
+  ],
+  "author": "Pedro Barreto",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pedrobarreto/cloudwalk-assessment/issues"
+  },
+  "homepage": "https://github.com/pedrobarreto/cloudwalk-assessment#readme"
+}
