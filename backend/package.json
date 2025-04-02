@@ -4,6 +4,7 @@
   "description": "Backend for a technical test for CloudWalk. Built with Node.js and TypeScript, following clean code and architecture best practices.",
   "main": "index.js",
   "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
