@@ -7,11 +7,11 @@ import {
 
 export async function createUser(req: Request, res: Response) {
   try {
-    const { role, name, email, password, phone } = req.body;
+    const { role, name, email, password, phone, cnpj, approved_payment_methods, brand } = req.body;
     const result = await createUserService(
       role === 'user'
-        ? { role: 'user', name, email, password }
-        : { role: 'customer', phone }
+        ? { role: 'user', name, email, password, cnpj, approved_payment_methods, brand }
+        : { role: 'customer', phone, name }
     );
     return res.status(201).json(result);
   } catch (error: any) {
@@ -22,6 +22,7 @@ export async function createUser(req: Request, res: Response) {
 export async function login(req: Request, res: Response) {
   try {
     const { email, password } = req.body;
+
     const result = await loginOwner(email, password);
     return res.status(200).json(result);
   } catch (error: any) {
