@@ -1,16 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-export async function GET(_: NextRequest, { params }: { params: { brand: string } }) {
-  const { brand } = params;
-
+export async function GET(request: NextRequest) {
+  const brand = request.nextUrl.pathname.split('/').pop();
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/${brand}`, {
       method: 'GET',
-      cache: 'no-store'
+      cache: 'no-store',
     });
 
     const data = await res.json();
-
 
     if (!res.ok) {
       return NextResponse.json({ error: data?.error || 'Erro ao buscar cardápio' }, { status: res.status });

@@ -72,21 +72,22 @@ export default function WaitTimeWarningCard() {
     try {
       const { data, error } = await supabase
         .from('orders')
-        .select('id, status, preparation_time')
+        .select('id, status, preparation_time, user_id') // ✅ correção aqui
         .eq('status', 'em_preparacao');
-
+  
       if (error || !data) return;
-
+  
       const hasLongPrepTime = data.some(
         (order: Order) =>
           typeof order.preparation_time === 'number' && order.preparation_time > 1200
       );
-
+  
       setShowWarning(hasLongPrepTime);
     } catch (err) {
       console.error(err);
     }
   }
+  
 
   async function handleInterruptStore(interrupt: boolean) {
     const { error } = await supabase

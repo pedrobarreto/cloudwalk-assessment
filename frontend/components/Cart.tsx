@@ -5,7 +5,31 @@ import { useOrder } from '@/contexts/order-context';
 import { useRouter } from 'next/navigation';
 import CustomerLoginModal from '@/app/[brand]/CustomerLoginModal';
 
-export default function Cart({ products, cart, removeFromCart }: any) {
+type Product = {
+  id: string;
+  name: string;
+  price: number;
+  user_id: string;
+};
+
+type Cart = {
+  [productId: string]: number;
+};
+
+type CartProps = {
+  products: Product[];
+  cart: Cart;
+  removeFromCart: (productId: string) => void;
+};
+
+type CartItem = {
+  product_id: string;
+  name: string;
+  price: number;
+  quantity: number;
+};
+
+export default function Cart({ products, cart, removeFromCart }: CartProps) {
   const { order, setOrder } = useOrder();
   const router = useRouter();
   const [showLoginModal, setShowLoginModal] = useState(false);
@@ -13,26 +37,25 @@ export default function Cart({ products, cart, removeFromCart }: any) {
   const formatPrice = (price: number) => {
     return new Intl.NumberFormat('pt-BR', {
       style: 'currency',
-      currency: 'BRL'
+      currency: 'BRL',
     }).format(price);
   };
 
-  const items = Object.entries(cart).map(([id, quantity]) => {
-    const product = products.find((p: any) => p.id === id);
+  const items: CartItem[] = Object.entries(cart).map(([id, quantity]) => {
+    const product = products.find((p) => p.id === id);
     return {
-      product_id: product?.id,
-      name: product?.name,
-      price: product?.price,
+      product_id: product?.id || '',
+      name: product?.name || '',
+      price: product?.price || 0,
       quantity,
     };
   });
 
-  const total = items.reduce((acc, item) => acc + (item.quantity * item.price), 0);
+  const total = items.reduce((acc, item) => acc + item.quantity * item.price, 0);
 
   const handleFinalize = () => {
     const user_id = products[0]?.user_id;
     if (!user_id) return;
-
 
     setOrder({
       user_id,
@@ -52,7 +75,7 @@ export default function Cart({ products, cart, removeFromCart }: any) {
   return (
     <>
       <aside className="bg-white p-4 rounded-xl shadow-md sticky top-6">
-        <h2 className="text-xl  text-gray-600 font-bold mb-4">Carrinho</h2>
+        <h2 className="text-xl text-gray-600 font-bold mb-4">Carrinho</h2>
         {items.length === 0 ? (
           <p className="text-gray-600">Seu carrinho está vazio.</p>
         ) : (

@@ -39,7 +39,8 @@ export default function NewProductPage() {
         body: JSON.stringify({
           name: form.name,
           description: form.description,
-          price: Number(form.price)
+          price: Number(form.price),
+          type: "product"
         })
       });
       const data = await response.json();
@@ -57,7 +58,7 @@ export default function NewProductPage() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           ...form,
-          price: Number(form.price)
+          price: Number(form.price),
         })
       });
       if (response.ok) router.push('/products/list');
