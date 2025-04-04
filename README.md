@@ -28,7 +28,7 @@ Consulte o [README do Backend](https://github.com/pedrobarreto/cloudwalk-assessm
 - **Context API** para gerenciamento global de estado
 - **Tailwind CSS** para estilização moderna e responsiva
 
-Consulte o [README do Frontend](https://github.com/pedrobarreto/cloudwalk-assessment/blob/dev/frontend/readme.md) para mais detalhes.
+Consulte o [README do Frontend](https://github.com/pedrobarreto/cloudwalk-assessment/blob/dev/frontend/README.md) para mais detalhes.
 
 ---
 
