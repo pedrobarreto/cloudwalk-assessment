@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Dialog } from '@headlessui/react';
 import { useOrder } from '@/contexts/order-context';
 
-const IS_DEV = process.env.NODE_ENV === 'production';
+const IS_DEV = process.env.NODE_ENV !== 'production';
 const DEV_CODE = '123456';
 const DEV_CUSTOMER_ID = '290c2abf-6296-44f5-896e-1ee3e6b37584';
 
