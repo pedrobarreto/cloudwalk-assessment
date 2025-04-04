@@ -1,4 +1,6 @@
-" # Cardápio Digital para Food Trucks
+[![video demo](https://img.youtube.com/vi/NVHjakUPfaQ/0.jpg)](https://www.youtube.com/watch?v=NVHjakUPfaQ)
+
+# Cardápio Digital para Food Trucks
 
 Este projeto foi desenvolvido para oferecer uma solução simples e inovadora de cardápio digital para food trucks. A ideia é eliminar a necessidade de um caixa dedicado, permitindo que o cliente faça o pedido de forma autônoma ao escanear um QR Code. Com a solução *Infinitetap*, o pedido é registrado e processado em tempo real, proporcionando uma experiência rápida, segura e moderna.
 
@@ -66,4 +68,3 @@ Consulte o [README do Frontend](https://github.com/pedrobarreto/cloudwalk-assess
 
 Esta solução inovadora transforma a experiência de atendimento em food trucks, automatizando o processo de pedidos e integrando tecnologias modernas para oferecer agilidade e eficiência. Ao unir o controle operacional com uma experiência de usuário excepcional, o projeto demonstra conhecimento avançado em desenvolvimento web e integrações em tempo real, ideal para atender às demandas de um ambiente dinâmico e competitivo.
 
-"
